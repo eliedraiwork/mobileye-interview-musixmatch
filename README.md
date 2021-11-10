@@ -43,7 +43,7 @@ For example after building the image, you should run this command:
 ```
 $ docker run \
     -it \
-    -e MUSIX_MATCH_API_KEY=******** \
+    -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
     {username}/{image-tag} {arg}
 ```
 
@@ -70,7 +70,7 @@ Using docker:
 docker run \
     -v $(pwd)/output:/output \
     -it \
-    -e MUSIX_MATCH_API_KEY=******** \
+    -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
     {username}/{image-tag} {arg}
 ```
 
@@ -78,6 +78,6 @@ Using docker compose (volumes already defined in the yml file):
 
 ```
 docker compose run \
-    -e MUSIX_MATCH_API_KEY=******** \
+    -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
     musixmatch-api-service {arg}
 ```
