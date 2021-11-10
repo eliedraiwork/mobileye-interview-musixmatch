@@ -35,9 +35,9 @@ async function processApi(word) {
     //  call API musixmatch for getting results
     const apikey = process.env.MUSIX_MATCH_API_KEY;
     const q_lyrics = word;
-    const f_lyrics_language = 'en';
-    const f_track_release_group_first_release_date_max = '20100101';
-    const page_size = '100';
+    const f_lyrics_language = process.env.MUSIX_MATCH_LANGUAGE || 'en';
+    const f_track_release_group_first_release_date_max = process.env.MUSIX_MATCH_FIRST_RELEASE_DATE_MAX || '20100101';
+    const page_size = 1000;
     let page = 0;
 
     const tracks = [];
@@ -46,6 +46,7 @@ async function processApi(word) {
 
     do {
         page++;
+        console.log(`Retrieving page ${page}...`);
         const response = await getPage(
             apikey,
             q_lyrics,
@@ -66,6 +67,7 @@ async function processApi(word) {
                     song_share_url: track.track.track_share_url,
                 };
             });
+            console.log(track_list.length, 'tracks for page ' + page);
             tracks.push(...track_list);
         }
     } while (status_code === 200 && track_list.length > 0);
