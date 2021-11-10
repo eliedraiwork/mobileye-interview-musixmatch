@@ -1,0 +1,8 @@
+version: '2'
+services:
+  musixmatch-api-service:
+    build: .
+    volumes:
+      - ${PWD}/output:/output
+    environment:
+      - DEFAULT_WORD="car"
