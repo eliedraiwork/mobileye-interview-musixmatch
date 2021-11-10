@@ -37,7 +37,7 @@ async function processApi(word) {
     const q_lyrics = word;
     const f_lyrics_language = 'en';
     const f_track_release_group_first_release_date_max = '20100101';
-    const page_size = '200';
+    const page_size = '100';
     let page = 0;
 
     const tracks = [];
@@ -71,6 +71,8 @@ async function processApi(word) {
     } while (status_code === 200 && track_list.length > 0);
     return tracks;
 }
+
+//  TODO: make promises to get all songs as one
 
 async function getPage(
     apiKey,
