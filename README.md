@@ -57,6 +57,13 @@ $ docker run \
 ```
 
 It is also possible to define the environment variable **DEFAULT_WORD** to define another default word for query instead of "car".
+```
+$ docker run \
+    -it \
+    -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
+    -e DEFAULT_WORLD=Hello
+    {username}/{image-tag} {arg}
+```
 
 ### CSV
 
