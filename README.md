@@ -61,7 +61,7 @@ It is also possible to define the environment variable **DEFAULT_WORD** to defin
 $ docker run \
     -it \
     -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
-    -e DEFAULT_WORLD=Hello
+    -e DEFAULT_WORLD=Hello \
     {username}/{image-tag} {arg}
 ```
 
