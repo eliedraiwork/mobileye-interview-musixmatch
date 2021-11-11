@@ -53,16 +53,16 @@ Or simply provide a .env file with this variable inside it and with the followin
 $ docker run \
     -it \
     --env-file /path/to/env/file \
-    {username}/{image-tag} {arg}
+    musixmatch-api-service {arg}
 ```
 
-It is also possible to define the environment variable **DEFAULT_WORD** to define another default word for query instead of "car".
+It is also possible to define the environment variable **DEFAULT_WORD** to define another default word for query instead of _"car"_.
 ```
 $ docker run \
     -it \
     -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
     -e DEFAULT_WORLD=Hello \
-    {username}/{image-tag} {arg}
+    musixmatch-api-service {arg}
 ```
 
 ### CSV
@@ -78,7 +78,7 @@ docker run \
     -v $(pwd)/output:/output \
     -it \
     -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
-    {username}/{image-tag} {arg}
+    musixmatch-api-service {arg}
 ```
 
 Using docker compose (volumes already defined in the yml file):
