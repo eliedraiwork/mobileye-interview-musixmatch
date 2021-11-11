@@ -14,7 +14,7 @@ async function main() {
     if (process.argv.length >= 3) {
         word = process.argv[2];
     }
-    console.log(`Searching for ${word} in Musixmatch API.`);
+    console.log(`Searching for "${word}" in Musixmatch API.`);
 
     // retrieve api key
     const apiKey = process.env.MUSIX_MATCH_API_KEY;
@@ -27,7 +27,9 @@ async function main() {
 
     //  convert to csv
     const csv = parse(tracks);
-    writeFileSync(__dirname + '/../output/results.csv', csv);
+    const fileName = process.env.OUTPUT_FILE_NAME || 'musixmatch-script-results.csv';
+    console.log(`Creating file ${fileName}`);
+    writeFileSync(`${__dirname}/../output/${fileName}`, csv);
     return tracks;
 }
 
@@ -46,7 +48,7 @@ async function processApi(word) {
 
     do {
         page++;
-        console.log(`Retrieving page ${page}...`);
+
         const response = await getPage(
             apikey,
             q_lyrics,
@@ -67,7 +69,7 @@ async function processApi(word) {
                     song_share_url: track.track.track_share_url,
                 };
             });
-            console.log(track_list.length, 'tracks for page ' + page);
+            console.log(`${track_list.length} tracks for page ${page}`);
             tracks.push(...track_list);
         }
     } while (status_code === 200 && track_list.length > 0);

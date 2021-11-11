@@ -5,4 +5,5 @@ services:
     volumes:
       - ${PWD}/output:/output
     environment:
-      - DEFAULT_WORD="car"
+      - DEFAULT_WORD=car
+      - OUTPUT_FILE_NAME=musixmatch-script-results.csv

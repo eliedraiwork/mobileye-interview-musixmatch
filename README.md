@@ -33,7 +33,8 @@ Using docker compose:
 docker compose build
 ```
 
-### API key
+### Environment variables
+#### MUSIX_MATCH_API_KEY
 
 It's mandatory to provide an environment variable for the API key.
 For security reasons we removed it from the code.
@@ -55,7 +56,7 @@ $ docker run \
     --env-file /path/to/env/file \
     musixmatch-api-service {arg}
 ```
-
+#### DEFAULT_WORD
 It is also possible to define the environment variable **DEFAULT_WORD** to define another default word for query instead of _"car"_.
 ```
 $ docker run \
@@ -64,6 +65,8 @@ $ docker run \
     -e DEFAULT_WORLD=Hello \
     musixmatch-api-service {arg}
 ```
+#### OUTPUT_FILE_NAME
+It is also possible to provide a name for the result output file. By default the file name will be : *musixmatch-script-results.csv*
 
 ### CSV
 
@@ -86,5 +89,6 @@ Using docker compose (volumes already defined in the yml file):
 ```
 docker compose run \
     -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
+    -e OUTPUT_FILE_NAME=script-results.csv \
     musixmatch-api-service {arg}
 ```
