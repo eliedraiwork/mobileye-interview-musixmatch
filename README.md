@@ -67,6 +67,14 @@ $ docker run \
 ```
 #### OUTPUT_FILE_NAME
 It is also possible to provide a name for the result output file. By default the file name will be : *musixmatch-script-results.csv*
+```
+$ docker run \
+    -it \
+    -e MUSIX_MATCH_API_KEY={MUSIX_MATCH_API_KEY} \
+    -e DEFAULT_WORLD=Hello \
+    -e OUTPUT_FILE_NAME=script-results.csv \
+    musixmatch-api-service {arg}
+```
 
 ### CSV
 
